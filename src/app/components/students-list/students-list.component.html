@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6"><h3>Student List</h3></div>
+    <div class="col-md-6 d-flex justify-content-end">
+      <a class="btn btn-sm btn-primary" href="/add-student">Add Student</a>
+    </div>
+  </div>
+  
+
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Program</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (item of studentList; let i=$index; track i) {
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.program}}</td>
+        <td>
+          <button (click)="edit(item)" type="button" class="btn btn_sm btn-outline-primary me-2">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <button (click)="delete(item)" type="button" class="btn btn_sm btn-outline-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  
+
+</div>
